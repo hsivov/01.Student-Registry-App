@@ -31,8 +31,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-     - name: Deploy to production
-       uses: johnbeynon/render-deploy-action@v0.0.8
+     - name: Docker Login
+       uses: docker/login-action@v3.1.0
        with:
-         service-id: ${{ secrets.SERVICE_ID }}
-         api-key: ${{ secrets.RENDER_TOKEN }}
+        # Username used to log against the Docker registry
+         username: hsivov
+        # Password or personal access token used to log against the Docker registry
+         password: ${{ secrets.DOCKER_HUB_TOKEN }}
