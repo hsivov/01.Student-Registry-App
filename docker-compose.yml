@@ -3,6 +3,6 @@ services:
   app:
     image: hsivov/students-app
     ports:
-      - "8082:8082" # Map port 3030 on the host to port 3030 in the container
+      - "80:80" # Map port 3030 on the host to port 3030 in the container
     environment:
       - NODE_ENV=production
