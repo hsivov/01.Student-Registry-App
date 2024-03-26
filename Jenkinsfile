@@ -19,5 +19,11 @@ pipeline {
                 bat 'npm test'
            }
         }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                input message: 'Do you want to proceed with deployment?', ok: 'Proceed'
+            }
+        }
     }
 }
