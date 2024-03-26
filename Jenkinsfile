@@ -2,13 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Install dependencies') {
             steps {
                 bat 'npm install' 
             }
         }
 
-        stage('Test') {
+        stage('Audit') {
+           steps {
+                bat 'npm audit fix'
+           }
+        }
+
+        stage('Run Integration Test') {
            steps {
                 bat 'npm test'
            }
