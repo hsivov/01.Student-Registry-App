@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-        stage('Audit') {
+        stage('Audit and fix') {
            steps {
                 bat 'npm audit fix'
            }
